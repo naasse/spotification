@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp -r build/ ../public/",
     "test": "react-scripts test",
     "cover": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"

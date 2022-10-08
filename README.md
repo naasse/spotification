@@ -13,16 +13,17 @@ Exploring both browser (React) and desktop UI (Nodegui) application tools.
 * Run `yarn install`
 * Change directory to `src/ui` and run `yarn install`
 
-## Running
+## Developing
 
 * Start the development server: `yarn start:server`
 * Start the development UI: `yarn start:ui`
 
-## Deploying
+Edit source files to reflect changes.
 
-The plan is to build the development UI as static files then serve alongside the server.
+## Running
 
-TODO
+* Build the UI source files and include them in the server with `yarn build`
+
 
 ## References
 

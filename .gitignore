@@ -11,3 +11,5 @@ examples/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+src/public/
