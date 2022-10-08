@@ -3,6 +3,5 @@ ignores: [
     "commitlint",
     "depcheck",
     "prettier",
-    "querystring",
     "typescript"
 ]

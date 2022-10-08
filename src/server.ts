@@ -1,5 +1,4 @@
 import express from "express";
-import { config } from "dotenv";
 
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -10,10 +9,10 @@ import {
   callbackHandler,
 } from "./handlers/logon";
 
-config();
+import { env } from "./environment";
 
 const app = express();
-const port = process.env.PORT ?? "8888";
+const port = env.port ?? "8888";
 
 app
   .use(express.static(__dirname + "/public"))
