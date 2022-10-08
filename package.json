@@ -1,10 +1,11 @@
 {
   "name": "spotification",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Spotify playlist desktop application",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start:ui": "cd src/ui && yarn start",
+    "start:server": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -48,6 +49,9 @@
   "lint-staged": {
     "*": [
       "yarn depcheck ."
+    ],
+    "src/ui/*": [
+      "yarn depcheck src/ui"
     ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
