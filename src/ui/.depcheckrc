@@ -1,4 +1,7 @@
 ignores: [
+    "@babel/core",
+    "@babel/plugin-syntax-flow",
+    "@babel/plugin-transform-react-jsx",
     "@types/node",
     "@types/jest"
 ]
