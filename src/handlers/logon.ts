@@ -57,7 +57,7 @@ export const callbackHandler = (req: Request, res: Response) => {
   const storedState = req.cookies ? req.cookies[env.stateKey] : null;
 
   if (state === null || state !== storedState) {
-    res.redirect("/#?error=state_mismatch");
+    res.redirect(`${req.headers.referer}#?error=state_mismatch`);
   } else {
     res.clearCookie(env.stateKey);
     const authOptions = {
@@ -85,9 +85,9 @@ export const callbackHandler = (req: Request, res: Response) => {
         queryParams.set("refresh_token", refreshToken);
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect(`/#${queryParams.toString()}`);
+        res.redirect(`${req.headers.referer}#${queryParams.toString()}`);
       } else {
-        res.redirect("/#?error=invalid_token");
+        res.redirect(`${req.headers.referer}#?error=invalid_token`);
       }
     });
   }
