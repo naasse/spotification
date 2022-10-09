@@ -11,14 +11,22 @@
     "ts-node": "^10.9.1"
   },
   "scripts": {
-    "start": "ts-node server.ts"
+    "start": "ts-node server.ts",
+    "lint": "eslint ./ --ext js,ts",
+    "lint:fix": "eslint ./ --ext js,ts --fix"
   },
   "packageManager": "yarn@3.2.4",
   "devDependencies": {
     "@types/cookie-parser": "^1",
     "@types/cors": "^2",
+    "@types/eslint": "^8",
     "@types/express": "^4",
+    "@types/prettier": "^2",
     "@types/request": "^2",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "^8.25.0",
+    "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   }
 }

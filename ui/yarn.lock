@@ -2782,7 +2782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2.1.5":
+"@types/prettier@npm:^2, @types/prettier@npm:^2.1.5":
   version: 2.7.1
   resolution: "@types/prettier@npm:2.7.1"
   checksum: 5e3f58e229d6c73b5f5cae2e8f96c1c4a5b5805f83459e17a045ba8e96152b1d38e86b63e3172fb159dac923388699660862b75b2d37e54220805f0e691e26f1
@@ -10049,6 +10049,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
 "pretty-bytes@npm:^5.3.0, pretty-bytes@npm:^5.4.1":
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0"
@@ -11275,6 +11284,7 @@ __metadata:
     "@types/jest": ^27.0.1
     "@types/lodash": ^4.14.186
     "@types/node": ^16.7.13
+    "@types/prettier": ^2
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
     "@typescript-eslint/eslint-plugin": latest
@@ -11282,6 +11292,7 @@ __metadata:
     eslint: ^8.25.0
     eslint-plugin-react: latest
     lodash: ^4.17.21
+    prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-router-dom: ^6.4.2
