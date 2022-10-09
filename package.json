@@ -6,8 +6,8 @@
   "scripts": {
     "start": "yarn start:server",
     "start:ui": "cd ui && yarn start",
-    "start:server": "cd server && yarn start",
-    "build": "cd ui && yarn build",
+    "start:server": "cd server && yarn install && yarn start",
+    "build": "cd ui && yarn install && yarn build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prepare": "husky install",
@@ -35,9 +35,10 @@
       "yarn depcheck ."
     ]
   },
-  "engines" : {
-    "npm" : ">=8.0.0 <9.0.0",
-    "node" : ">=16.0.0 <17.0.0"
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0",
+    "yarn": ">= 3.0.0"
   },
   "packageManager": "yarn@3.2.4"
 }
