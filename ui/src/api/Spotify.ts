@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosError } from "axios";
+import { isEmpty, isNil } from "lodash";
 
 const baseConfig: AxiosRequestConfig = {
   baseURL: "https://api.spotify.com/v1",
@@ -6,18 +7,21 @@ const baseConfig: AxiosRequestConfig = {
 
 export class Spotify {
   private token: string;
-  public abortController: AbortController;
+  private abortControllers: AbortController[];
 
   constructor(accessToken: string) {
     this.token = accessToken;
-    this.abortController = new AbortController();
+    this.abortControllers = [];
   }
 
   protected get<T>(route: string): Promise<T> {
+    const abortController = new AbortController();
+    this.abortControllers.push(abortController);
+
     return axios
       .get(route, {
         ...baseConfig,
-        signal: this.abortController.signal,
+        signal: abortController.signal,
         headers: {
           Authorization: `Bearer ${this.token}`,
           "Content-Type": "application/json",
@@ -26,8 +30,23 @@ export class Spotify {
       .then((resp) => resp.data);
   }
 
-  public abort() {
-    this.abortController.abort();
+  public abortCount(count: number) {
+    for (let i = 0; i < count && !isEmpty(this.abortControllers); i++) {
+      this.abortLast();
+    }
+  }
+
+  public abortLast() {
+    const abortController = this.abortControllers.pop();
+    if (!isNil(abortController)) {
+      abortController.abort();
+    }
+  }
+
+  public abortAll() {
+    while (!isEmpty(this.abortControllers)) {
+      this.abortLast();
+    }
   }
 
   public defaultErrorHandler(err: AxiosError) {

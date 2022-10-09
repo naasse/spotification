@@ -1,9 +1,10 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LoginView } from "./views/LoginView";
 import { Header } from "./components/Header";
 import { HomeView } from "./views/HomeView";
 import { Logout } from "./components/Logout";
-import { isEmpty, isNil } from "lodash";
+import { isEmpty } from "lodash";
 
 import { useEffect, useState } from "react";
 import { UserContext } from "./state/UserContext";
@@ -18,30 +19,32 @@ const App = () => {
   const [me, setMe] = useState<User>();
 
   useEffect(() => {
-    if (!isEmpty(token) && isNil(me)) {
+    if (!isEmpty(token)) {
       const api = new SpotifyUsers(token);
       api.getMe().then(setMe).catch(api.defaultErrorHandler);
 
-      return () => api.abort();
+      return () => api.abortAll();
     }
-  }, [me]);
+  }, []);
 
   return (
-    <div className="App">
-      <UserContext.Provider
-        value={{ user: me, token: localStorage.getItem("accessToken") }}
-      >
-        <Router>
-          <Header />
+    <React.StrictMode>
+      <div className="App">
+        <UserContext.Provider
+          value={{ user: me, token: localStorage.getItem("accessToken") }}
+        >
+          <Router>
+            <Header />
 
-          <Routes>
-            {!isEmpty(token) && <Route path="/" element={<HomeView />} />}
-            <Route path="/login" element={<LoginView />} />
-            <Route path="/logout" element={<Logout />} />
-          </Routes>
-        </Router>
-      </UserContext.Provider>
-    </div>
+            <Routes>
+              {!isEmpty(token) && <Route path="/" element={<HomeView />} />}
+              <Route path="/login" element={<LoginView />} />
+              <Route path="/logout" element={<Logout />} />
+            </Routes>
+          </Router>
+        </UserContext.Provider>
+      </div>
+    </React.StrictMode>
   );
 };
 
