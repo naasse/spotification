@@ -19,7 +19,7 @@ app
   .use(cors())
   .use(cookieParser());
 
-app.get("/login", logonHandler);
+app.get("/login.do", logonHandler);
 
 app.get("/refresh_token", refreshTokenHandler);
 
