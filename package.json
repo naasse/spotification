@@ -4,9 +4,9 @@
   "description": "Spotify playlist desktop application",
   "main": "index.js",
   "scripts": {
-    "start:ui": "cd src/ui && yarn start",
+    "start:ui": "cd ui && yarn start",
     "start:server": "cd server && yarn start",
-    "build": "cd src/ui && yarn build",
+    "build": "cd ui && yarn build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prepare": "husky install"
@@ -24,6 +24,12 @@
   "lint-staged": {
     "*": [
       "yarn depcheck ."
+    ],
+    "ui/**/*": [
+      "yarn depcheck ui"
+    ],
+    "server/**/*": [
+      "yarn depcheck server"
     ]
   },
   "packageManager": "yarn@3.2.4",

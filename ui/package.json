@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "GENERATE_SOURCEMAP=false BROWSER=none react-scripts start",
-    "build": "react-scripts build && rm -rf ../public/ && cp -r build/ ../public/",
+    "build": "react-scripts build && rm -rf ../server/public/ && cp -r build/ ../server/public/",
     "test": "react-scripts test",
     "cover": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
