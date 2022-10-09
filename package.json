@@ -9,7 +9,8 @@
     "build": "cd ui && yarn build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "cd ui && yarn cover"
   },
   "repository": {
     "type": "git",
@@ -21,17 +22,17 @@
     "url": "https://github.com/naasse/spotification/issues"
   },
   "homepage": "https://github.com/naasse/spotification#readme",
-  "lint-staged": {
-    "*": [
-      "yarn depcheck ."
-    ]
-  },
-  "packageManager": "yarn@3.2.4",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.1.0",
     "commitlint": "^17.1.2",
     "depcheck": "^1.4.3",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
-  }
+  },
+  "lint-staged": {
+    "*": [
+      "yarn depcheck ."
+    ]
+  },
+  "packageManager": "yarn@3.2.4"
 }
