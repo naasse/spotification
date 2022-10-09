@@ -12,7 +12,7 @@ Exploring both browser (React) and desktop UI (Nodegui) application tools.
 * Server:
   * Populate `.env` according to `.env.example`
   * Run `yarn install`
-* UI:  
+* UI:
   * Run `yarn install`
 
 ## Developing
@@ -30,7 +30,7 @@ Edit source files to reflect changes.
 
 https://developer.spotify.com/documentation/web-api/quick-start/
 
-## TODO 
+## TODO
 
 * Better linting (especially React and JSDoc)
 * CI/CD
@@ -38,5 +38,6 @@ https://developer.spotify.com/documentation/web-api/quick-start/
 * Nodegui
 * Actually functionality lol
 * scss
-* webpack config for proxy devServer
-* Logout option
+* webpack config for proxy devServer?
+* Proper use of yarn workspaces
+* Consider migration to yarn zero-install
