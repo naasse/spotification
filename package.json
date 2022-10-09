@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/naasse/spotification#readme",
   "lint-staged": {
-    "*": [
+    "package.json": [
       "yarn depcheck ."
     ],
     "ui/**/*": [
