@@ -2,6 +2,10 @@ ignores: [
   "@babel/core",
   "@babel/plugin-syntax-flow",
   "@babel/plugin-transform-react-jsx",
+  "@types/eslint",
   "@types/jest",
-  "@types/node"
+  "@types/node",
+  "@types/prettier",
+  "depcheck",
+  "prettier"
 ]
