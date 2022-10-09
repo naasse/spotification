@@ -10,7 +10,7 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prepare": "husky install",
-    "test": "cd ui && yarn cover"
+    "verify": "cd ui && yarn verify"
   },
   "repository": {
     "type": "git",

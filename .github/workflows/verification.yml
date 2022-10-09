@@ -13,7 +13,7 @@ jobs:
   verify-ui:
     defaults:
       run:
-        working-directory: ./ui
+        working-directory: /ui
 
     runs-on: ubuntu-latest
 

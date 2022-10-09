@@ -40,7 +40,8 @@
     "cover": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint ./ --ext js,jsx,ts,tsx",
-    "lint:fix": "eslint ./ --ext js,jsx,ts,tsx --fix"
+    "lint:fix": "eslint ./ --ext js,jsx,ts,tsx --fix",
+    "verify": "yarn lint && yarn cover"
   },
   "browserslist": {
     "production": [
