@@ -3,29 +3,28 @@ import { LoginView } from "./views/LoginView";
 import { Header } from "./components/Header";
 import { HomeView } from "./views/HomeView";
 import { Logout } from "./components/Logout";
-import { isNil } from "lodash";
-import { SpotifyWebApi } from "spotify-web-api-ts";
-import { PrivateUser } from "spotify-web-api-ts/types/types/SpotifyObjects";
+import { isEmpty, isNil } from "lodash";
 
 import { useEffect, useState } from "react";
 import { UserContext } from "./state/UserContext";
+import { SpotifyUsers } from "./api/SpotifyUsers";
+import { User } from "./api/types";
 
 import "./App.css";
 
+const token = localStorage.getItem("accessToken") ?? "";
+
 const App = () => {
-  const hasToken = !isNil(localStorage.getItem("accessToken"));
-  const [me, setMe] = useState<PrivateUser>();
+  const [me, setMe] = useState<User>();
 
   useEffect(() => {
-    if (hasToken) {
-      new SpotifyWebApi({
-        accessToken: localStorage.getItem("accessToken") ?? "",
-      }).users
-        .getMe()
-        .then(setMe)
-        .catch(console.error);
+    if (!isEmpty(token) && isNil(me)) {
+      const api = new SpotifyUsers(token);
+      api.getMe().then(setMe).catch(api.defaultErrorHandler);
+
+      return () => api.abort();
     }
-  }, []);
+  }, [me]);
 
   return (
     <div className="App">
@@ -36,7 +35,7 @@ const App = () => {
           <Header />
 
           <Routes>
-            {hasToken && <Route path="/" element={<HomeView />} />}
+            {!isEmpty(token) && <Route path="/" element={<HomeView />} />}
             <Route path="/login" element={<LoginView />} />
             <Route path="/logout" element={<Logout />} />
           </Routes>

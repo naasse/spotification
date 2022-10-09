@@ -1,9 +1,11 @@
-import { useEffect, useContext } from "react";
-import { isNil } from "lodash";
-import { useNavigate, useLocation, Location } from "react-router-dom";
+import { useEffect, useContext, useCallback } from "react";
+import { isEmpty } from "lodash";
+import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../state/UserContext";
 
 import "./Header.css";
+
+const token = localStorage.getItem("accessToken") ?? "";
 
 export const Header = () => {
   const userContext = useContext(UserContext);
@@ -11,9 +13,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const hasToken = !isNil(localStorage.getItem("accessToken"));
-
-  const login = (location: Location) => {
+  const login = useCallback(() => {
     if (location.hash.indexOf("#access_token") > -1) {
       localStorage.setItem(
         "accessToken",
@@ -26,7 +26,7 @@ export const Header = () => {
     ) {
       navigate("/login");
     }
-  };
+  }, [location, navigate]);
 
   const logout = () => {
     localStorage.removeItem("accessToken");
@@ -34,19 +34,19 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    if (hasToken) {
+    if (!isEmpty(token)) {
       return;
     }
 
-    login(location);
-  }, [location]);
+    login();
+  }, [login]);
 
   return (
     <>
       <header className="Header">
         <div className="title">Spotification</div>
 
-        {hasToken && (
+        {!isEmpty(token) && (
           <div className="actions">
             <button onClick={logout} className="btn btn-primary">
               Log Out

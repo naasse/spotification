@@ -1,8 +1,8 @@
 import { createContext } from "react";
-import { PrivateUser } from "spotify-web-api-ts/types/types/SpotifyObjects";
+import { User } from "../api/types";
 
 export type UserContextType = {
-  user?: PrivateUser;
+  user?: User;
   token?: string | null;
 };
 
