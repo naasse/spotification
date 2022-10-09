@@ -1,7 +1,5 @@
 ignores: [
-    "@commitlint/config-conventional",
-    "commitlint",
-    "depcheck",
-    "prettier",
-    "typescript"
+  "@commitlint/config-conventional",
+  "commitlint",
+  "depcheck"
 ]

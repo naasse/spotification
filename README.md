@@ -9,9 +9,11 @@ Exploring both browser (React) and desktop UI (Nodegui) application tools.
 * Register your application with Spotify - follow instructions [here](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/)
 * Install git, npm, and yarn
 * Clone this repo
-* Populate `.env` according to `.env.example`
-* Run `yarn install`
-* Change directory to `src/ui` and run `yarn install`
+* Server:
+  * Populate `.env` according to `.env.example`
+  * Run `yarn install`
+* UI:  
+  * Run `yarn install`
 
 ## Developing
 
@@ -23,7 +25,6 @@ Edit source files to reflect changes.
 ## Running
 
 * Build the UI source files and include them in the server with `yarn build`
-
 
 ## References
 
