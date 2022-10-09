@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { LoginView } from "./views/LoginView";
 import { Header } from "./components/Header";
 import { HomeView } from "./views/HomeView";
@@ -33,15 +33,13 @@ const App = () => {
         <UserContext.Provider
           value={{ user: me, token: localStorage.getItem("accessToken") }}
         >
-          <Router>
-            <Header />
+          <Header />
 
-            <Routes>
-              {!isEmpty(token) && <Route path="/" element={<HomeView />} />}
-              <Route path="/login" element={<LoginView />} />
-              <Route path="/logout" element={<Logout />} />
-            </Routes>
-          </Router>
+          <Routes>
+            {!isEmpty(token) && <Route path="/" element={<HomeView />} />}
+            <Route path="/login" element={<LoginView />} />
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
         </UserContext.Provider>
       </div>
     </React.StrictMode>
