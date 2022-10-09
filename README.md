@@ -28,3 +28,14 @@ Edit source files to reflect changes.
 ## References
 
 https://developer.spotify.com/documentation/web-api/quick-start/
+
+## TODO 
+
+* Better linting (especially React and JSDoc)
+* CI/CD
+* Testing
+* Nodegui
+* Actually functionality lol
+* scss
+* webpack config for proxy devServer
+* Logout option
