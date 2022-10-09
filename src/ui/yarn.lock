@@ -3686,6 +3686,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.21.1":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: ^1.14.0
+  checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^2.2.0":
   version: 2.2.0
   resolution: "axobject-query@npm:2.2.0"
@@ -6105,7 +6114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -10176,7 +10185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.0":
+"qs@npm:6.11.0, qs@npm:^6.9.4":
   version: 6.11.0
   resolution: "qs@npm:6.11.0"
   dependencies:
@@ -11272,16 +11281,19 @@ __metadata:
     react-dom: ^18.2.0
     react-router-dom: ^6.4.2
     react-scripts: 5.0.1
-    spotify-web-api-js: ^1.5.2
+    spotify-web-api-ts: ^1.4.5
     typescript: ^4.4.2
     web-vitals: ^2.1.0
   languageName: unknown
   linkType: soft
 
-"spotify-web-api-js@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "spotify-web-api-js@npm:1.5.2"
-  checksum: 7ffaba350c54cbe68b33faa64574d06df9a8d7eb7b9f01aaeaf507690206c6b5bd94764e69651f35d3254a0ce1b5f6526811f09d83a901b5d2b35dcf2141e15c
+"spotify-web-api-ts@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "spotify-web-api-ts@npm:1.4.5"
+  dependencies:
+    axios: ^0.21.1
+    qs: ^6.9.4
+  checksum: 1738d160c8f87db1245e578b2d2cb45264bfb66eaa4c063ce2a8bceadf71549f68bd18d5f6969a391be1b29ecc2bb346b09fbb94402b6c170392892af2fe2339
   languageName: node
   linkType: hard
 
