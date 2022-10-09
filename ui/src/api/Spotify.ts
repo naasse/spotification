@@ -1,52 +1,16 @@
-import axios, { AxiosRequestConfig, AxiosError } from "axios";
-import { isEmpty, isNil } from "lodash";
+import axios, { AxiosError } from "axios";
+import { SPOTIFY_BASE_API_URL } from "../constants/constants";
+import { BaseAbortableAPI } from "./BaseAbortableAPI";
 
-const baseConfig: AxiosRequestConfig = {
-  baseURL: "https://api.spotify.com/v1",
-};
-
-export class Spotify {
-  private token: string;
-  private abortControllers: AbortController[];
-
+export class Spotify extends BaseAbortableAPI {
   constructor(accessToken: string) {
-    this.token = accessToken;
-    this.abortControllers = [];
-  }
-
-  protected get<T>(route: string): Promise<T> {
-    const abortController = new AbortController();
-    this.abortControllers.push(abortController);
-
-    return axios
-      .get(route, {
-        ...baseConfig,
-        signal: abortController.signal,
-        headers: {
-          Authorization: `Bearer ${this.token}`,
-          "Content-Type": "application/json",
-        },
-      })
-      .then((resp) => resp.data);
-  }
-
-  public abortCount(count: number) {
-    for (let i = 0; i < count && !isEmpty(this.abortControllers); i++) {
-      this.abortLast();
-    }
-  }
-
-  public abortLast() {
-    const abortController = this.abortControllers.pop();
-    if (!isNil(abortController)) {
-      abortController.abort();
-    }
-  }
-
-  public abortAll() {
-    while (!isEmpty(this.abortControllers)) {
-      this.abortLast();
-    }
+    super({
+      baseURL: SPOTIFY_BASE_API_URL,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
   }
 
   public defaultErrorHandler(err: AxiosError) {
