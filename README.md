@@ -1,3 +1,7 @@
+[![Verification](https://github.com/naasse/spotification/actions/workflows/verification.yml/badge.svg)](https://github.com/naasse/spotification/actions/workflows/verification.yml)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=naasse_spotification&metric=coverage)](https://sonarcloud.io/summary/new_code?id=naasse_spotification)
+
 # Spotification
 
 Application will work with Spotify API to allow creating and sharing playlists which can be updated democratically by the users.
