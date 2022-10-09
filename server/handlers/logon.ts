@@ -31,7 +31,7 @@ export const refreshTokenHandler = (req: Request, res: Response) => {
     headers: {
       Authorization:
         "Basic " +
-        new Buffer(env.clientId + ":" + env.clientSecret).toString("base64"),
+        Buffer.from(env.clientId + ":" + env.clientSecret).toString('base64'),
     },
     form: {
       grant_type: "refresh_token",
@@ -70,7 +70,7 @@ export const callbackHandler = (req: Request, res: Response) => {
       headers: {
         Authorization:
           "Basic " +
-          new Buffer(env.clientId + ":" + env.clientSecret).toString("base64"),
+          Buffer.from(env.clientId + ":" + env.clientSecret).toString('base64'),
       },
       json: true,
     };

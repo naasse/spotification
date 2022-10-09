@@ -12,7 +12,7 @@ import {
 import { env } from "./environment";
 
 const app = express();
-const port = env.port ?? "8888";
+const port = env.port;
 
 app
   .use(express.static(__dirname + "/public"))
