@@ -2,7 +2,7 @@
 export const LoginView = () => {
   return (
     <>
-      <a href="http://localhost:8888/login" className="btn btn-primary">
+      <a href="http://localhost:5000/login" className="btn btn-primary">
         Log in with Spotify
       </a>
     </>
