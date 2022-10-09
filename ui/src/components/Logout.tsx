@@ -3,7 +3,7 @@ export const Logout = () => {
 
   return (
     <div>
-      You have been logged out. Click <a href="/login">here</a> to log back in.
+      You have been logged out. Click <a href="/">here</a> to log back in.
     </div>
   );
 };
